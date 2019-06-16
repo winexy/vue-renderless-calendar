@@ -1,14 +1,22 @@
 {
   "name": "vue-renderless-calendar",
-  "version": "1.0.0",
-  "module": "dist/index.js",
+  "version": "1.0.3",
+  "module": "./dist/index.js",
+  "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winexy/vue-renderless-calendar.git"
+  },
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "watch": "rollup -c -w",
     "dev": "rollup -c",
     "test:watch": "ava --watch",
     "test": "ava",
-    "build:example": "parcel example/index.html --out-dir dist-example --open"
+    "build:example": "parcel example/index.html --out-dir dist-example --open",
+    "prepublish": "npm run build",
+    "publish": "npm publish"
   },
   "dependencies": {
     "vue": "^2.6.10",
