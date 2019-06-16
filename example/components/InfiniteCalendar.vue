@@ -93,7 +93,6 @@
     },
     methods: {
       handleDateChange(payload) {
-        console.log(payload.map(_ => _.formatted));
       },
       close() {
         window.removeEventListener('keydown', this.keydownHandler);
@@ -105,7 +104,6 @@
       },
       keydownHandler(e) {
         if (e.code === 'Escape') {
-          console.log('close');
           this.close();
         }
       }

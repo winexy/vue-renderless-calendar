@@ -86,7 +86,6 @@
     },
     methods: {
       handleDateChange(payload) {
-        console.log(payload.map(_ => _.formatted));
       }
     }
   };
