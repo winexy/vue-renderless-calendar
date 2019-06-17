@@ -1,8 +1,9 @@
 {
   "name": "vue-renderless-calendar",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "module": "./dist/index.js",
   "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
+  "description": "vue scoped-slots calendar",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,11 +19,9 @@
     "test": "ava",
     "prepare": "npm run build"
   },
-  "dependencies": {
-    "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.3"
-  },
   "devDependencies": {
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@vue/component-compiler-utils": "^3.0.0",
