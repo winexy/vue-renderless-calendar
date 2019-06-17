@@ -2,6 +2,7 @@
   <RenderlessCalendar
     :min-date="minDate"
     :max-date="maxDate"
+    :locale="locale"
     :capture-hover="captureHover"
     :mode="mode"
     prevent-out-of-range
@@ -88,6 +89,7 @@
 
 <script>
   import CalendarCell from './CalendarCell.vue';
+  import enLocale from '../../lib/locale/en';
 
   export default {
     name: 'Calendar',
@@ -100,7 +102,8 @@
         maxDate: '2020-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         mode: 'range',
-        captureHover: true
+        captureHover: true,
+        locale: enLocale
       };
     },
     methods: {
