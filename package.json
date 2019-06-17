@@ -10,11 +10,12 @@
   },
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
+    "build:example": "parcel build example/index.html --out-dir dist-example",
     "watch": "rollup -c -w",
     "dev": "rollup -c",
+    "dev:example": "parcel example/index.html --out-dir dist-example --open",
     "test:watch": "ava --watch",
     "test": "ava",
-    "build:example": "parcel example/index.html --out-dir dist-example --open",
     "prepare": "npm run build"
   },
   "dependencies": {
