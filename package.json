@@ -3,7 +3,14 @@
   "version": "1.1.2",
   "module": "./dist/index.js",
   "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
-  "description": "vue scoped-slots calendar",
+  "description": "Zero dependency Vue renderless calendar with scoped-slots API",
+  "keywords": [
+    "vue",
+    "renderless",
+    "calendar",
+    "datepicker",
+    "scoped-slots"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

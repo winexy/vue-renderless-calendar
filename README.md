@@ -1,6 +1,6 @@
 # WIP: vue-renderless-calendar 📆
 
-> Vue renderless calendar with scoped-slots API
+> Zero dependency Vue renderless calendar with scoped-slots API
 
 ## Install
 
