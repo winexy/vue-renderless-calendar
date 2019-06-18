@@ -1,4 +1,4 @@
-# WIP: vue-renderless-calendar 📆
+# vue-renderless-calendar 📆
 
 > Zero dependency Vue renderless calendar with scoped-slots API
 
