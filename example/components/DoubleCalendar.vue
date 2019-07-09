@@ -25,7 +25,7 @@
         setMonth,
         monthsList,
         canGoToPrevMonth,
-        canGoToNexMonth
+        canGoToNextMonth
       }"
     >
       <div class="root">
@@ -51,7 +51,7 @@
             <span class="calendar__title">
               {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
             </span>
-            <button v-if="canGoToNexMonth" class="calendar__month-btn" @click="nextPage"></button>
+            <button v-if="canGoToNextMonth" class="calendar__month-btn" @click="nextPage"></button>
           </div>
           <div class="calendar__weeks">
             <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">

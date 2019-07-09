@@ -52,7 +52,7 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 | currentMonth      | Number                |               |
 | currentYear       | Number                |               |
 | canGoToPrevMonth  | Boolean               |               |
-| canGoToNexMonth   | Boolean               |               |
+| canGoToNextMonth   | Boolean               |               |
 
 ### Scoped-slots Methods
 | Property          | Arguments     | Description |
