@@ -1,72 +1,60 @@
 <template>
   <RenderlessCalendar
+    v-slot="{
+      getModifiers,
+      selectedDates,
+      currentYear,
+      prevPage,
+      nextPage,
+      weekDayNames,
+      monthNames,
+      calendar,
+      onDateMouseOut,
+      onDateMouseOver,
+      onDateSelect
+    }"
     :min-date="minDate"
     :max-date="maxDate"
+    :disabled-dates="disabledDates"
+    :marked-dates="['2019-05-29']"
     :locale="locale"
     prevent-out-of-range
     mode="range"
     @onDateChange="handleDateChange"
   >
-    <template
-      #default="{
-        selectedDates, currentYear,
-        isBetween,
-        prevPage,
-        nextPage,
-        weekDayNames,
-        monthNames,
-        calendar,
-        onDateMouseOut,
-        onDateMouseOver,
-        onDateSelect
-      }"
-    >
-      <div class="root">
-        <div
-          v-for="view in calendar"
-          :key="`${view.month}-${view.year}`"
-          class="calendar"
-          :data-date-1="selectedDates[0] && selectedDates[0].formatted"
-          :data-date-2="selectedDates[1] && selectedDates[1].formatted"
-        >
-          <div class="calendar__header">
-            <button class="calendar__month-btn" @click="prevPage"></button>
-            <span class="calendar__title">
-              {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
-            </span>
-            <button class="calendar__month-btn" @click="nextPage"></button>
-          </div>
-          <div class="calendar__weeks">
-            <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
-              {{ day.short }}
-            </span>
-          </div>
-          <div class="calendar__body">
-            <RenderlessDate
-              v-for="date in view.dates"
-              :key="date.ms"
-              :selected-dates="selectedDates"
-              :disabled-dates="disabledDates"
-              :marked-dates="['2019-05-29']"
-              :min-date="minDate"
-              :max-date="maxDate"
-              :date="date"
-            >
-              <template #default="modifiers">
-                <CalendarCell
-                  v-bind="modifiers"
-                  :date="date"
-                  :is-between="isBetween(date)"
-                  @click.native="onDateSelect(date)"
-                  @mouseover.native="onDateMouseOver(date)"
-                  @mouseout.native="onDateMouseOut"
-                />
-              </template>
-            </RenderlessDate>
-          </div>
+    <div class="root">
+      <div
+        v-for="view in calendar"
+        :key="`${view.month}-${view.year}`"
+        class="calendar"
+        :data-date-1="selectedDates[0] && selectedDates[0].formatted"
+        :data-date-2="selectedDates[1] && selectedDates[1].formatted"
+      >
+        <div class="calendar__header">
+          <button class="calendar__month-btn" @click="prevPage"></button>
+          <span class="calendar__title">
+            {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+          </span>
+          <button class="calendar__month-btn" @click="nextPage"></button>
+        </div>
+        <div class="calendar__weeks">
+          <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
+            {{ day.short }}
+          </span>
+        </div>
+        <div class="calendar__body">
+          <CalendarCell
+            v-for="date in view.dates"
+            :key="date.ms"
+            v-bind="getModifiers(date)"
+            :date="date"
+            @click.native="onDateSelect(date)"
+            @mouseover.native="onDateMouseOver(date)"
+            @mouseout.native="onDateMouseOut"
+          />
         </div>
       </div>
-    </template>
+    </div>
   </RenderlessCalendar>
 </template>
 

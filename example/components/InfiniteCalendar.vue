@@ -4,20 +4,10 @@
       open
     </button>
     <RenderlessCalendar
-      :min-date="minDate"
-      :max-date="maxDate"
-      :locale="locale"
-      prevent-out-of-range
-      mode="range"
-      view-mode="infinite"
-      :default-selected-dates="['2019-06-14', '2019-06-28']"
-      @onDateChange="handleDateChange"
-    >
-      <template
-        #default="{
+      v-slot="{
+        getModifiers,
         selectedDates,
         currentYear,
-        isBetween,
         prevPage,
         nextPage,
         weekDayNames,
@@ -27,51 +17,48 @@
         onDateMouseOver,
         onDateSelect
       }"
-      >
-        <div class="root" :class="isOpened ? 'infinite-calendar' : ''">
-          <div
-            v-for="view in calendar"
-            :key="`${view.month}-${view.year}`"
-            class="calendar"
-            :data-date-1="selectedDates[0] && selectedDates[0].formatted"
-            :data-date-2="selectedDates[1] && selectedDates[1].formatted"
-          >
-            <div class="calendar__header">
-              <span class="calendar__title">
-                {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
-              </span>
-            </div>
-            <div class="calendar__weeks">
-              <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
-                {{ day.short }}
-              </span>
-            </div>
-            <div class="calendar__body">
-              <RenderlessDate
-                v-for="date in view.dates"
-                :key="date.ms"
-                :selected-dates="selectedDates"
-                :disabled-dates="disabledDates"
-                :marked-dates="['2019-05-29']"
-                :min-date="minDate"
-                :max-date="maxDate"
-                :date="date"
-              >
-                <template #default="modifiers">
-                  <CalendarCell
-                    v-bind="modifiers"
-                    :date="date"
-                    :is-between="isBetween(date)"
-                    @click.native="onDateSelect(date)"
-                    @mouseover.native="onDateMouseOver(date)"
-                    @mouseout.native="onDateMouseOut"
-                  />
-                </template>
-              </RenderlessDate>
-            </div>
+      :min-date="minDate"
+      :max-date="maxDate"
+      :disabled-dates="disabledDates"
+      :marked-dates="['2019-05-29']"
+      :locale="locale"
+      prevent-out-of-range
+      mode="range"
+      view-mode="infinite"
+      :default-selected-dates="['2019-06-14', '2019-06-28']"
+      @onDateChange="handleDateChange"
+    >
+      <div class="root" :class="isOpened ? 'infinite-calendar' : ''">
+        <div
+          v-for="view in calendar"
+          :key="`${view.month}-${view.year}`"
+          class="calendar"
+          :data-date-1="selectedDates[0] && selectedDates[0].formatted"
+          :data-date-2="selectedDates[1] && selectedDates[1].formatted"
+        >
+          <div class="calendar__header">
+            <span class="calendar__title">
+              {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+            </span>
+          </div>
+          <div class="calendar__weeks">
+            <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
+              {{ day.short }}
+            </span>
+          </div>
+          <div class="calendar__body">
+            <CalendarCell
+              v-for="date in view.dates"
+              :key="date.ms"
+              v-bind="getModifiers(date)"
+              :date="date"
+              @click.native="onDateSelect(date)"
+              @mouseover.native="onDateMouseOver(date)"
+              @mouseout.native="onDateMouseOut"
+            />
           </div>
         </div>
-      </template>
+      </div>
     </RenderlessCalendar>
   </div>
 </template>
