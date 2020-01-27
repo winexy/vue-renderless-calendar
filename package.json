@@ -1,6 +1,7 @@
 {
   "name": "vue-renderless-calendar",
-  "version": "1.2.4",
+  "version": "1.2.5",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
   "description": "Zero dependency Vue renderless calendar with scoped-slots API",
