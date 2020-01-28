@@ -27,18 +27,21 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 
 ### Props
 
-| Prop                 | Required    | Type       | Default | Description
-|----------------------|-------------|------------|---------| ---------------------------------
-| viewMode             | false       | String     |         | 'single', 'double', 'infinite'
-| mode                 | false       | String     |         | 'single', 'range'
-| locale               | true        | Object     |         | Locale object containing `months`, `days` properties
-| minDate              | false       | String     | ''      | Minimal valid date (`YYYY-MM-DDD`)
-| maxDate              | false       | String     | ''      | Maximal valid date (`YYYY-MM-DDD`)
-| preventOutOfRange    | false       | Boolean    | true    | Prevent user go out of valid dates range
-| dateSelectStrategy   | false       | Function   | null    | If you want custom behaviour for handling date select, you can implement this function
-| defaultSelectedDates | false       | Array      | []      | Array of date strings with `YYYY-MM-DDD` format
-| captureHover         | false       | Boolean    | true    | `captureHover` prop is used for computing dates which are between selected date and current hovered date
-| captureThirdDate     | false       | Boolean    | false   | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
+| Prop                 | Required    | Type                  | Default | Description
+|----------------------|-------------|-----------------------|---------| ---------------------------------
+| viewMode             | false       | String                |         | 'single', 'double', 'infinite'
+| mode                 | false       | String                |         | 'single', 'range'
+| locale               | true        | Object                |         | Locale object containing `months`, `days` properties
+| minDate              | false       | String                | ''      | Minimal valid date (`YYYY-MM-DDD`)
+| maxDate              | false       | String                | ''      | Maximal valid date (`YYYY-MM-DDD`)
+| preventOutOfRange    | false       | Boolean               | true    | Prevent user go out of valid dates range
+| dateSelectStrategy   | false       | Function              | null    | If you want custom behaviour for handling date select, you can implement this function
+| defaultSelectedDates | false       | Array                 | []      | Array of date strings with `YYYY-MM-DDD` format
+| captureHover         | false       | Boolean               | true    | `captureHover` prop is used for computing dates which are between selected date and current hovered date
+| captureThirdDate     | false       | Boolean               | false   | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
+| disabledDates        | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
+| markedDates          | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` scoped-slots property |
+
 
 ### Scoped-slots properties
 
@@ -52,7 +55,7 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 | currentMonth      | Number                |               |
 | currentYear       | Number                |               |
 | canGoToPrevMonth  | Boolean               |               |
-| canGoToNextMonth   | Boolean               |               |
+| canGoToNextMonth  | Boolean               |               |
 
 ### Scoped-slots Methods
 | Property          | Arguments     | Description |
@@ -61,10 +64,10 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 | nextPage          | -             | Go to next view iteration |
 | resetDates        | -             | Set `selectedDates` to [] |
 | setMonth          | monthListItem | Update views current active month |
-| isBetween         | CalendarDate  | Returning true if date between selected dates or hovered date |
 | onDateMouseOut    | -             | Reset current hovered date |
 | onDateMouseOver   | CalendarDate  | Set current hovered date |
 | onDateSelect      | CalendarDate  | Append selected date to `selectedDates` array using "date select strategy" |
+| getModifiers      | CalendarDate  | Returns |
 
 ### Events
 
@@ -72,22 +75,9 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 |--------------|-----------------------|
 | onDateChange | Array\<CalendarDate\> |
 
-## RenderlessDate
+### Modifiers
 
-> Wrapper component for calendar cell containing usefull modifiers which can be used for computing styles
-
-### Props
-
-| Prop                 | Required    | Type                  | Default | Description |
-|----------------------|-------------|-----------------------|---------| ---------------------------------|
-| selectedDates        | true        | Array\<CalendarDate\> |         | Array of current selected dates |
-| date                 | true        | CalendarDate          |         | CalendarDate object containing useful information and methods |
-| minDate              | false       | String                | ''      | Minimal valid date (`YYYY-MM-DDD`) |
-| maxDate              | false       | String                | ''      | Maximal valid date (`YYYY-MM-DDD`) |
-| disabledDates        | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
-| markedDates          | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` scoped-slots property |
-
-### Scoped-slots properties
+> Object containing boolean properties that can be useful for computing styles
 
 | Property             | Type     | Description
 |----------------------|----------|---------------
