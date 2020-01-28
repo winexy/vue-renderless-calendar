@@ -40,7 +40,7 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 | captureHover         | false       | Boolean               | true    | `captureHover` prop is used for computing dates which are between selected date and current hovered date
 | captureThirdDate     | false       | Boolean               | false   | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
 | disabledDates        | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
-| markedDates          | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` scoped-slots property |
+| markedDates          | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` modifier |
 
 
 ### Scoped-slots properties
@@ -82,6 +82,7 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 | Property             | Type     | Description
 |----------------------|----------|---------------
 | isSelected           | Boolean  |
+| isBetween           | Boolean  |
 | isDisabled           | Boolean  |
 | isMarked             | Boolean  |
 | isFirst              | Boolean  | is first selected date
