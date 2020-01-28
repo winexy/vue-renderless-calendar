@@ -1,6 +1,6 @@
 {
   "name": "vue-renderless-calendar",
-  "version": "1.2.5",
+  "version": "2.0.0-beta.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
