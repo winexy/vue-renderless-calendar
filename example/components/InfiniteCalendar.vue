@@ -21,10 +21,11 @@
       :max-date="maxDate"
       :disabled-dates="disabledDates"
       :marked-dates="['2019-05-29']"
+      :custom-number-of-months="20"
       :locale="locale"
       prevent-out-of-range
       mode="range"
-      view-mode="infinite"
+      view-mode="custom"
       :default-selected-dates="['2019-06-14', '2019-06-28']"
       @onDateChange="handleDateChange"
     >

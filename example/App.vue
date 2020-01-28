@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <section>
-      <Calendar/>
+      <Calendar />
     </section>
     <section>
       <DoubleCalendar />
     </section>
     <section>
-      <InfiniteCalendar/>
+      <InfiniteCalendar />
     </section>
   </div>
 </template>
