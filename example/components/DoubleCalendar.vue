@@ -25,6 +25,7 @@
     :capture-hover="captureHover"
     :mode="mode"
     prevent-out-of-range
+		:default-selected-dates="dates"
     view-mode="double"
     @onDateChange="handleDateChange"
   >
@@ -91,11 +92,13 @@
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         mode: 'range',
         captureHover: true,
-        locale: enLocale
+        locale: enLocale,
+        dates: ['2020-01-30', '2020-02-05']
       };
     },
     methods: {
-      handleDateChange(payload) {
+      handleDateChange(dates) {
+        this.dates = dates.map(date => date.formatted);
       },
       toggleMode() {
         this.mode = this.mode === 'range' ? 'single' : 'range';
