@@ -33,7 +33,7 @@
         <div class="calendar__header">
           <button class="calendar__month-btn" @click="prevPage"></button>
           <span class="calendar__title" style="text-transform:capitalize">
-            {{ monthNames[view.month].long }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+            {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
           </span>
           <button class="calendar__month-btn" @click="nextPage"></button>
         </div>
@@ -67,7 +67,7 @@
       CalendarCell
     },
     props: {
-      locale: String
+      locale: [String, Object]
     },
     data() {
       return {

@@ -39,7 +39,7 @@
         >
           <div class="calendar__header">
             <span class="calendar__title" style="text-transform:capitalize">
-              {{ monthNames[view.month].long }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+              {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
             </span>
           </div>
           <div class="calendar__weeks">
