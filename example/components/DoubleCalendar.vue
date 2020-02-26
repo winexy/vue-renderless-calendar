@@ -25,7 +25,7 @@
     :capture-hover="captureHover"
     :mode="mode"
     prevent-out-of-range
-		:default-selected-dates="dates"
+    :default-selected-dates="dates"
     view-mode="double"
     @onDateChange="handleDateChange"
   >
@@ -78,12 +78,14 @@
 
 <script>
   import CalendarCell from './CalendarCell.vue';
-  import enLocale from '../../lib/locale/en';
 
   export default {
     name: 'Calendar',
     components: {
       CalendarCell
+    },
+    props: { 
+      locale: String 
     },
     data() {
       return {
@@ -92,7 +94,6 @@
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         mode: 'range',
         captureHover: true,
-        locale: enLocale,
         dates: ['2020-01-30', '2020-02-05']
       };
     },

@@ -66,20 +66,21 @@
 
 <script>
   import CalendarCell from './CalendarCell.vue';
-  import enLocale from '../../lib/locale/en';
 
   export default {
     name: 'Calendar',
     components: {
       CalendarCell
     },
+    props: {
+      locale: String 
+    },
     data() {
       return {
         minDate: '2019-06-01',
         maxDate: '2020-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
-        isOpened: false,
-        locale: enLocale
+        isOpened: false
       };
     },
     methods: {
