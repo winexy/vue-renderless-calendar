@@ -32,8 +32,8 @@
       >
         <div class="calendar__header">
           <button class="calendar__month-btn" @click="prevPage"></button>
-          <span class="calendar__title">
-            {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+          <span class="calendar__title" style="text-transform:capitalize">
+            {{ monthNames[view.month].long }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
           </span>
           <button class="calendar__month-btn" @click="nextPage"></button>
         </div>

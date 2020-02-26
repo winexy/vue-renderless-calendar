@@ -38,8 +38,8 @@
           :data-date-2="selectedDates[1] && selectedDates[1].formatted"
         >
           <div class="calendar__header">
-            <span class="calendar__title">
-              {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+            <span class="calendar__title" style="text-transform:capitalize">
+              {{ monthNames[view.month].long }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
             </span>
           </div>
           <div class="calendar__weeks">
