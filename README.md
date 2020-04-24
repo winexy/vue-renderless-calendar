@@ -15,12 +15,6 @@ yarn add vue-renderless-calendar
 import enLocale from 'vue-renderless-calendar/dist/locale/en';
 ```
 
-> Available locales
-
-- English `locale/en`
-- Russian `locale/ru`
-
-
 ## RenderlessCalendar
 
 > Main wrapper component which contains state of the calendar and other helpful data
@@ -31,7 +25,7 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 |----------------------|-------------|-----------------------|---------| ---------------------------------
 | viewMode             | false       | String                |         | 'single', 'double', 'infinite'
 | mode                 | false       | String                |         | 'single', 'range'
-| locale               | true        | Object                |         | Locale object containing `months`, `days` properties
+| locale               | true        | Object or String      |         | Locale string (e.g. 'ru'), it will automatically generate locale object using `Date.prototype.toLocaleString`, otherwise you can provide this object manually 
 | minDate              | false       | String                | ''      | Minimal valid date (`YYYY-MM-DDD`)
 | maxDate              | false       | String                | ''      | Maximal valid date (`YYYY-MM-DDD`)
 | preventOutOfRange    | false       | Boolean               | true    | Prevent user go out of valid dates range
