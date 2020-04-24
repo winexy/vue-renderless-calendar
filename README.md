@@ -9,12 +9,6 @@ npm i vue-renderless-calendar
 yarn add vue-renderless-calendar
 ```
 
-## Locale
-
-```javascript
-import enLocale from 'vue-renderless-calendar/dist/locale/en';
-```
-
 ## RenderlessCalendar
 
 > Main wrapper component which contains state of the calendar and other helpful data
