@@ -21,20 +21,20 @@ import enLocale from 'vue-renderless-calendar/dist/locale/en';
 
 ### Props
 
-| Prop                 | Required    | Type                  | Default | Description
-|----------------------|-------------|-----------------------|---------| ---------------------------------
-| viewMode             | false       | String                |         | 'single', 'double', 'infinite'
-| mode                 | false       | String                |         | 'single', 'range'
-| locale               | true        | Object or String      |         | Locale string (e.g. 'ru'), it will automatically generate locale object using `Date.prototype.toLocaleString`, otherwise you can provide this object manually 
-| minDate              | false       | String                | ''      | Minimal valid date (`YYYY-MM-DDD`)
-| maxDate              | false       | String                | ''      | Maximal valid date (`YYYY-MM-DDD`)
-| preventOutOfRange    | false       | Boolean               | true    | Prevent user go out of valid dates range
-| dateSelectStrategy   | false       | Function              | null    | If you want custom behaviour for handling date select, you can implement this function
-| defaultSelectedDates | false       | Array                 | []      | Array of date strings with `YYYY-MM-DDD` format
-| captureHover         | false       | Boolean               | true    | `captureHover` prop is used for computing dates which are between selected date and current hovered date
-| captureThirdDate     | false       | Boolean               | false   | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
-| disabledDates        | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
-| markedDates          | false       | Array<String>         | []      | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` modifier |
+| Prop                 | Required    | Type                  | Default             | Description
+|----------------------|-------------|-----------------------|---------------------|----------------------------------
+| viewMode             | false       | String                |                     | 'single', 'double', 'infinite'
+| mode                 | false       | String                |                     | 'single', 'range'
+| locale               | false       | Object or String      | navigator.language  | Locale string (e.g. 'ru'), it will automatically generate locale object using `Date.prototype.toLocaleString`, otherwise you can provide this object manually 
+| minDate              | false       | String                | ''                  | Minimal valid date (`YYYY-MM-DDD`)
+| maxDate              | false       | String                | ''                  | Maximal valid date (`YYYY-MM-DDD`)
+| preventOutOfRange    | false       | Boolean               | true                | Prevent user go out of valid dates range
+| dateSelectStrategy   | false       | Function              | null                | If you want custom behaviour for handling date select, you can implement this function
+| defaultSelectedDates | false       | Array                 | []                  | Array of date strings with `YYYY-MM-DDD` format
+| captureHover         | false       | Boolean               | true                | `captureHover` prop is used for computing dates which are between selected date and current hovered date
+| captureThirdDate     | false       | Boolean               | false               | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
+| disabledDates        | false       | Array<String>         | []                  | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
+| markedDates          | false       | Array<String>         | []                  | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` modifier |
 
 
 ### Scoped-slots properties
