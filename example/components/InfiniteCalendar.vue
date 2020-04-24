@@ -38,8 +38,8 @@
           :data-date-2="selectedDates[1] && selectedDates[1].formatted"
         >
           <div class="calendar__header">
-            <span class="calendar__title">
-              {{ monthNames[view.month].short }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+            <span class="calendar__title" style="text-transform:capitalize">
+              {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
             </span>
           </div>
           <div class="calendar__weeks">
@@ -66,20 +66,21 @@
 
 <script>
   import CalendarCell from './CalendarCell.vue';
-  import enLocale from '../../lib/locale/en';
 
   export default {
     name: 'Calendar',
     components: {
       CalendarCell
     },
+    props: {
+      locale: String 
+    },
     data() {
       return {
         minDate: '2019-06-01',
         maxDate: '2020-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
-        isOpened: false,
-        locale: enLocale
+        isOpened: false
       };
     },
     methods: {
