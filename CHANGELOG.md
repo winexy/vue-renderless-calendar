@@ -1,3 +1,15 @@
+## v2.2.0
+
+### Added
+- Added CommonJS build output
+
+## v2.1.0
+
+## Added
+
+- Added String type support for locale prop
+- Added dynamic locale generation logic using Browser API
+
 ## v2.0.0
 
 ### Added
