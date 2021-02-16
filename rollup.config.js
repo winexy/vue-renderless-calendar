@@ -11,10 +11,17 @@ const locales = localesList.map(createLocaleConfig);
 function createLocaleConfig(locale) {
   return {
     input: path.join('lib', 'locale', locale),
-    output: {
-      format: 'es',
-      file: path.join('dist', 'locale', locale)
-    },
+    output: [
+      {
+        format: 'es',
+        dir: 'dist/locale',
+        entryFileNames: '[name].es.js'
+      },
+      {
+        format: 'cjs',
+        dir: 'dist/locale'
+      }
+    ],
     plugins: [
       buble(),
       production && terser()
@@ -24,10 +31,17 @@ function createLocaleConfig(locale) {
 
 export default [{
   input: path.join('lib', 'index.js'),
-  output: {
-    format: 'es',
-    file: path.join('dist', 'index.js')
-  },
+  output: [
+    {
+      format: 'es',
+      dir: 'dist',
+      entryFileNames: '[name].es.js'
+    },
+    {
+      format: 'cjs',
+      dir: 'dist'
+    }
+  ],
   plugins: [
     buble(),
     production && terser()
