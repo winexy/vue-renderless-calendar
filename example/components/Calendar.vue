@@ -18,6 +18,7 @@
     :disabled-dates="disabledDates"
     :marked-dates="['2019-05-29']"
     :locale="locale"
+    :first-day-of-week="firstDayOfWeek"
     prevent-out-of-range
     mode="range"
     @onDateChange="handleDateChange"
@@ -67,12 +68,16 @@
       CalendarCell
     },
     props: {
-      locale: [String, Object]
+      locale: [String, Object],
+      firstDayOfWeek: {
+        type: Number,
+        default: 0
+      }
     },
     data() {
       return {
         minDate: '2019-06-01',
-        maxDate: '2020-06-26',
+        maxDate: '2022-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20']
       };
     },

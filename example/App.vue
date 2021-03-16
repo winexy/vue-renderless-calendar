@@ -6,9 +6,9 @@
           Localized with <i>.toLocalString()</i>
           <span class="flex buttons">
             <button
-              v-for="loc in ['fr', 'de', 'es', 'ar', 'pl']"
+              v-for="loc in ['fr', 'de', 'es', 'en', 'pl']"
               :key="loc"
-              :class="{active: loc===customLocale}"
+              :class="{active: loc === customLocale}"
               @click="customLocale = loc"
             >
               {{ loc }}
@@ -16,22 +16,22 @@
             <input v-model="customLocale">
           </span>
         </p>
-        <Calendar :locale="customLocale" />
+        <Calendar :locale="customLocale" :first-day-of-week="customLocale === 'en' ? 0 : 1" />
       </section>
-      <section>
+      <!-- <section>
         <p>
           Hard-coded locale <i>(backward-compatible)</i>
           <pre>/lib/locale/ru.js</pre>
         </p>
         <Calendar :locale="hardcodedLocale" />
-      </section>
+      </section> -->
     </div>
-    <section>
+    <!-- <section>
       <DoubleCalendar :locale="customLocale" />
     </section>
     <section>
       <InfiniteCalendar locale="de-DE" />
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -49,8 +49,7 @@ export default {
     Calendar
   },
   data: () => ({
-    hardcodedLocale: localeRu,
-    customLocale: 'hu'
+    customLocale: 'en'
   })
 };
 </script>
