@@ -27,6 +27,7 @@
       mode="range"
       view-mode="custom"
       :default-selected-dates="['2019-06-14', '2019-06-28']"
+      :first-day-of-week="firstDayOfWeek"
       @onDateChange="handleDateChange"
     >
       <div class="root" :class="isOpened ? 'infinite-calendar' : ''">
@@ -82,6 +83,11 @@
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         isOpened: false
       };
+    },
+    computed: {
+      firstDayOfWeek() {
+        return this.locale === 'en' ? 0 : 1;
+      }
     },
     methods: {
       handleDateChange(payload) {

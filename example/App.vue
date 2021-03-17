@@ -16,22 +16,22 @@
             <input v-model="customLocale">
           </span>
         </p>
-        <Calendar :locale="customLocale" :first-day-of-week="customLocale === 'en' ? 0 : 1" />
+        <Calendar :locale="customLocale" />
       </section>
-      <!-- <section>
+      <section>
         <p>
           Hard-coded locale <i>(backward-compatible)</i>
           <pre>/lib/locale/ru.js</pre>
         </p>
         <Calendar :locale="hardcodedLocale" />
-      </section> -->
+      </section>
     </div>
-    <!-- <section>
+    <section>
       <DoubleCalendar :locale="customLocale" />
     </section>
     <section>
       <InfiniteCalendar locale="de-DE" />
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -49,7 +49,8 @@ export default {
     Calendar
   },
   data: () => ({
-    customLocale: 'en'
+    hardcodedLocale: localeRu,
+    customLocale: 'hu'
   })
 };
 </script>

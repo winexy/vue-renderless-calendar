@@ -68,11 +68,7 @@
       CalendarCell
     },
     props: {
-      locale: [String, Object],
-      firstDayOfWeek: {
-        type: Number,
-        default: 0
-      }
+      locale: [String, Object]
     },
     data() {
       return {
@@ -80,6 +76,11 @@
         maxDate: '2022-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20']
       };
+    },
+    computed: {
+      firstDayOfWeek() {
+        return this.locale === 'en' ? 0 : 1;
+      }
     },
     methods: {
       handleDateChange(payload) {
