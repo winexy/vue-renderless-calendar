@@ -3,12 +3,13 @@
     v-slot="{
       getModifiers,
       selectedDates,
-      currentYear,
       prevPage,
       nextPage,
       weekDayNames,
       monthNames,
       calendar,
+      canGoToPrevMonth,
+      canGoToNextMonth,
       onDateMouseOut,
       onDateMouseOver,
       onDateSelect
@@ -32,11 +33,11 @@
         :data-date-2="selectedDates[1] && selectedDates[1].formatted"
       >
         <div class="calendar__header">
-          <button class="calendar__month-btn" @click="prevPage"></button>
+          <button class="calendar__month-btn" :disabled="!canGoToPrevMonth" @click="prevPage"></button>
           <span class="calendar__title" style="text-transform:capitalize">
             {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
           </span>
-          <button class="calendar__month-btn" @click="nextPage"></button>
+          <button class="calendar__month-btn" :disabled="!canGoToNextMonth" @click="nextPage"></button>
         </div>
         <div class="calendar__weeks">
           <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
@@ -160,6 +161,11 @@
       &:focus {
         outline: none;
         background-color: darken($light-gray, 10%);
+      }
+
+      &:disabled {
+        cursor: auto;
+        background-color: aliceblue;
       }
     }
     
