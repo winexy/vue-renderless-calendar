@@ -1,5 +1,6 @@
 import { terser } from 'rollup-plugin-terser';
 import buble from 'rollup-plugin-buble';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 import fs from 'fs';
 import path from 'path';
 
@@ -33,17 +34,20 @@ export default [{
   input: path.join('lib', 'index.js'),
   output: [
     {
+      sourcemap: true,
       format: 'es',
       dir: 'dist',
       entryFileNames: '[name].es.js'
     },
     {
+      sourcemap: true,
       format: 'cjs',
       dir: 'dist'
     }
   ],
   plugins: [
     buble(),
+    sourcemaps(),
     production && terser()
   ]
 }, ...locales];
