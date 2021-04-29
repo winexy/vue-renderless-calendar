@@ -29,6 +29,7 @@ yarn add vue-renderless-calendar
 | captureThirdDate     | false       | Boolean               | false               | `captureThirdDate` prop is used for capturing dates between in case when 2 dates already selected and you have third element hovered
 | disabledDates        | false       | Array<String>         | []                  | Array of `YYYY-MM-DDD` strings containing dates that can't be selected |
 | markedDates          | false       | Array<String>         | []                  | Array of `YYYY-MM-DDD` strings with special meaning, that later will be accessed via `isMarked` modifier |
+| firstDayOfWeek       | false       | number                | 1                   | Index of the weekday to start the week from. From 0 to 6. 0 is Sunday, 6 is Saturday |
 
 
 ### Scoped-slots properties
@@ -70,7 +71,7 @@ yarn add vue-renderless-calendar
 | Property             | Type     | Description
 |----------------------|----------|---------------
 | isSelected           | Boolean  |
-| isBetween           | Boolean  |
+| isBetween            | Boolean  |
 | isDisabled           | Boolean  |
 | isMarked             | Boolean  |
 | isFirst              | Boolean  | is first selected date

@@ -3,12 +3,13 @@
     v-slot="{
       getModifiers,
       selectedDates,
-      currentYear,
       prevPage,
       nextPage,
       weekDayNames,
       monthNames,
       calendar,
+      canGoToPrevMonth,
+      canGoToNextMonth,
       onDateMouseOut,
       onDateMouseOver,
       onDateSelect
@@ -18,6 +19,7 @@
     :disabled-dates="disabledDates"
     :marked-dates="['2019-05-29']"
     :locale="locale"
+    :first-day-of-week="firstDayOfWeek"
     prevent-out-of-range
     mode="range"
     @onDateChange="handleDateChange"
@@ -31,11 +33,11 @@
         :data-date-2="selectedDates[1] && selectedDates[1].formatted"
       >
         <div class="calendar__header">
-          <button class="calendar__month-btn" @click="prevPage"></button>
+          <button class="calendar__month-btn" :disabled="!canGoToPrevMonth" @click="prevPage"></button>
           <span class="calendar__title" style="text-transform:capitalize">
             {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
           </span>
-          <button class="calendar__month-btn" @click="nextPage"></button>
+          <button class="calendar__month-btn" :disabled="!canGoToNextMonth" @click="nextPage"></button>
         </div>
         <div class="calendar__weeks">
           <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
@@ -72,9 +74,14 @@
     data() {
       return {
         minDate: '2019-06-01',
-        maxDate: '2020-06-26',
+        maxDate: '2022-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20']
       };
+    },
+    computed: {
+      firstDayOfWeek() {
+        return this.locale === 'en' ? 0 : 1;
+      }
     },
     methods: {
       handleDateChange(payload) {
@@ -154,6 +161,11 @@
       &:focus {
         outline: none;
         background-color: darken($light-gray, 10%);
+      }
+
+      &:disabled {
+        cursor: auto;
+        background-color: aliceblue;
       }
     }
     
