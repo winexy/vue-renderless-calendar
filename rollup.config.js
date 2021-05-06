@@ -34,20 +34,20 @@ export default [{
   input: path.join('lib', 'index.js'),
   output: [
     {
-      sourcemap: true,
+      sourcemap: !production,
       format: 'es',
       dir: 'dist',
       entryFileNames: '[name].es.js'
     },
     {
-      sourcemap: true,
+      sourcemap: !production,
       format: 'cjs',
       dir: 'dist'
     }
   ],
   plugins: [
     buble(),
-    sourcemaps(),
+    !production && sourcemaps(),
     production && terser()
   ]
 }, ...locales];
