@@ -1,4 +1,5 @@
-import Vue, { ComponentOptions } from "vue";
+import Vue from "vue";
+import { CombinedVueInstance } from "vue/types/vue";
 
 export class CalendarDate {
   ms: number
@@ -104,8 +105,8 @@ type Computed = {
 }
 
 type Methods = {
-  onDateSelect(): void
-  onDateMouseOver(date: DateFormat): void
+  onDateSelect(date: CalendarDate): void
+  onDateMouseOver(date: CalendarDate): void
   onDateMouseOut(): void
   setDates(dates: Array<DateFormat>): void
   resetDates(index: number): void
@@ -141,4 +142,4 @@ type Methods = {
   getModifiers(date: CalendarDate): Modifiers<CalendarDate>
 }
 
-export const RenderlessCalendar: ComponentOptions<Vue, Data, Methods, Computed, Props>
+export const RenderlessCalendar: CombinedVueInstance<Vue, Data, Methods, Computed, Props> & { name: string }
