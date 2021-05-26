@@ -88,7 +88,7 @@ type Props = {
 
 type Data = {
   calendar: Array<Calendar>,
-  selectedDates: Array<DateFormat>,
+  selectedDates: Array<CalendarDate>,
   currentMonth: number | null,
   currentYear: number | null,
   currentHoveredDate: DateFormat | null,
