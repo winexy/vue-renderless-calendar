@@ -3,6 +3,7 @@
   "version": "2.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "types": "lib/types/index.d.ts",
   "author": "Seitmagambet Olzhas <seit7magambet@gmail.com>",
   "description": "Zero dependency Vue renderless calendar with scoped-slots API",
   "keywords": [
