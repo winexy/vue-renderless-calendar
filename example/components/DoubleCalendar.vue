@@ -25,6 +25,7 @@
     :capture-hover="captureHover"
     :mode="mode"
     prevent-out-of-range
+    :first-day-of-week="firstDayOfWeek"
     :default-selected-dates="dates"
     view-mode="double"
     @onDateChange="handleDateChange"
@@ -85,17 +86,22 @@
       CalendarCell
     },
     props: { 
-      locale: String 
+      locale: String
     },
     data() {
       return {
         minDate: '2019-06-01',
-        maxDate: '2020-06-26',
+        maxDate: '2022-06-26',
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         mode: 'range',
         captureHover: true,
         dates: ['2020-01-30', '2020-02-05']
       };
+    },
+    computed: {
+      firstDayOfWeek() {
+        return this.locale === 'en' ? 0 : 1;
+      }
     },
     methods: {
       handleDateChange(dates) {

@@ -6,9 +6,9 @@
           Localized with <i>.toLocalString()</i>
           <span class="flex buttons">
             <button
-              v-for="loc in ['fr', 'de', 'es', 'ar', 'pl']"
+              v-for="loc in ['fr', 'de', 'es', 'en', 'pl']"
               :key="loc"
-              :class="{active: loc===customLocale}"
+              :class="{active: loc === customLocale}"
               @click="customLocale = loc"
             >
               {{ loc }}
