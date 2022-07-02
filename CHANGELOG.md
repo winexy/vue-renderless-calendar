@@ -4,6 +4,7 @@
 
 - Added type definitions
 - Added sourcemaps for dev mode
+- Add `firstDayOfWeek` prop
 
 ### Fixed
 
