@@ -19,7 +19,7 @@ yarn add vue-renderless-calendar
 |----------------------|-------------|-----------------------|---------------------|----------------------------------
 | viewMode             | false       | String                |                     | 'single', 'double', 'infinite'
 | mode                 | false       | String                |                     | 'single', 'range'
-| locale               | false       | Object or String      | navigator.language  | Locale string (e.g. 'ru'), it will automatically generate locale object using `Date.prototype.toLocaleString`, otherwise you can provide this object manually 
+| locale               | false       | Object or String      | navigator.language (client), 'en' (server)  | Locale string (e.g. 'ru'), it will automatically generate locale object using `Date.prototype.toLocaleString`, otherwise you can provide this object manually 
 | minDate              | false       | String                | ''                  | Minimal valid date (`YYYY-MM-DDD`)
 | maxDate              | false       | String                | ''                  | Maximal valid date (`YYYY-MM-DDD`)
 | preventOutOfRange    | false       | Boolean               | true                | Prevent user go out of valid dates range
