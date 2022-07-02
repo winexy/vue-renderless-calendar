@@ -32,7 +32,7 @@
     "lint": "eslint ./lib",
     "lint:fix": "eslint ./lib --fix",
     "format": "prettier --write .",
-    "prepare": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
