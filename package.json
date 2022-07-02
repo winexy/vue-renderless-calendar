@@ -29,6 +29,8 @@
     "dev:example": "parcel example/index.html --out-dir dist-example --open",
     "test:watch": "ava --watch",
     "test": "ava",
+    "lint": "eslint ./lib",
+    "format": "prettier --write .",
     "prepare": "npm test && npm run build"
   },
   "devDependencies": {
