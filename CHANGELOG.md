@@ -1,3 +1,11 @@
+## v2.3.0
+
+### Added
+- Added type definitions
+- Added sourcemaps for dev mode
+### Fixed
+- Fixed incorrect behavior of `isOneDayBefore`, `isOneDayAfter`, `isOneDayBeforeLast`, `isOneDayBeforeFirst` methods
+
 ## v2.2.0
 
 ### Added
