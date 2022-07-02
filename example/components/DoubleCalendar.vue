@@ -15,7 +15,7 @@
       monthsList,
       canGoToPrevMonth,
       canGoToNextMonth,
-      getModifiers
+      getModifiers,
     }"
     :min-date="minDate"
     :max-date="maxDate"
@@ -39,7 +39,11 @@
           :class="month.isActive ? '--active' : ''"
           @click="setMonth(month)"
         >
-          {{ month !== monthsList[monthsList.length - 1] ? month.full : `${month.full}, ${month.year}` }}
+          {{
+            month !== monthsList[monthsList.length - 1]
+              ? month.full
+              : `${month.full}, ${month.year}`
+          }}
         </li>
       </ul>
       <div
@@ -50,14 +54,27 @@
         :data-date-2="selectedDates[1] && selectedDates[1].formatted"
       >
         <div class="calendar__header">
-          <button v-if="canGoToPrevMonth" class="calendar__month-btn" @click="prevPage"></button>
-          <span class="calendar__title" style="text-transform:capitalize">
-            {{ monthNames[view.month].full }}, <strong style="font-weight: 800;">{{ view.year }}</strong>
+          <button
+            v-if="canGoToPrevMonth"
+            class="calendar__month-btn"
+            @click="prevPage"
+          ></button>
+          <span class="calendar__title" style="text-transform: capitalize">
+            {{ monthNames[view.month].full }},
+            <strong style="font-weight: 800">{{ view.year }}</strong>
           </span>
-          <button v-if="canGoToNextMonth" class="calendar__month-btn" @click="nextPage"></button>
+          <button
+            v-if="canGoToNextMonth"
+            class="calendar__month-btn"
+            @click="nextPage"
+          ></button>
         </div>
         <div class="calendar__weeks">
-          <span v-for="day in weekDayNames" :key="day.short" class="calendar__week-day">
+          <span
+            v-for="day in weekDayNames"
+            :key="day.short"
+            class="calendar__week-day"
+          >
             {{ day.short }}
           </span>
         </div>
@@ -83,10 +100,10 @@
   export default {
     name: 'Calendar',
     components: {
-      CalendarCell
+      CalendarCell,
     },
-    props: { 
-      locale: String
+    props: {
+      locale: String,
     },
     data() {
       return {
@@ -95,13 +112,13 @@
         disabledDates: ['2019-05-30', '2019-06-12', '2019-06-20'],
         mode: 'range',
         captureHover: true,
-        dates: ['2020-01-30', '2020-02-05']
+        dates: ['2020-01-30', '2020-02-05'],
       };
     },
     computed: {
       firstDayOfWeek() {
         return this.locale === 'en' ? 0 : 1;
-      }
+      },
     },
     methods: {
       handleDateChange(dates) {
@@ -110,8 +127,8 @@
       toggleMode() {
         this.mode = this.mode === 'range' ? 'single' : 'range';
         this.captureHover = this.mode === 'range';
-      }
-    }
+      },
+    },
   };
 </script>
 
@@ -119,7 +136,7 @@
   $cell-width: 40px;
   $cell-height: 40px;
   $light-gray: #f7f7f9;
-  
+
   .root {
     display: flex;
     justify-content: center;
@@ -128,22 +145,22 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
-  
+
   .calendar {
     width: calc(#{$cell-width} * 7);
     padding: 8px;
-    
+
     &__header {
       padding: 8px 0;
       display: flex;
       justify-content: space-between;
     }
-    
+
     &__weeks {
       display: flex;
       justify-content: flex-start;
     }
-    
+
     &__week-day {
       display: inline-block;
       width: $cell-width;
@@ -153,7 +170,7 @@
       font-weight: 600;
       line-height: 40px;
     }
-    
+
     &__body {
       max-width: calc(#{$cell-width} * 7);
       min-width: calc(#{$cell-width} * 7);
@@ -161,7 +178,7 @@
       display: flex;
       flex-wrap: wrap;
     }
-    
+
     &__month-btn {
       background-color: $light-gray;
       color: #383838;
@@ -177,19 +194,17 @@
       background-repeat: no-repeat;
       width: 50px;
       height: 30px;
-      
+
       &:first-child {
         transform: rotate(-180deg);
       }
-      
+
       &:focus {
         outline: none;
         background-color: darken($light-gray, 10%);
       }
     }
-    
   }
-
 
   .months-list {
     list-style: none;
@@ -197,20 +212,18 @@
     margin-top: 65px;
     width: 80px;
   }
-  
+
   .months-list > li {
     text-align: left;
     cursor: pointer;
     font-size: 14px;
-    
+
     &:hover {
       color: lighten(#383838, 30%);
     }
-    
+
     &.--active {
       color: orangered;
     }
   }
- 
-
 </style>

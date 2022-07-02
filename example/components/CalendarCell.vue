@@ -1,10 +1,6 @@
 <template>
   <!--v-if="!date.isOtherMonthDay"-->
-  <button
-    class="calendar-cell"
-    :data-date="date.day"
-    :class="rootClasses"
-  >
+  <button class="calendar-cell" :data-date="date.day" :class="rootClasses">
     {{ date.day }}
   </button>
   <!--<div class="calendar-cell" v-else></div>-->
@@ -17,55 +13,55 @@
     props: {
       date: {
         required: true,
-        type: Object
+        type: Object,
       },
       selectedDates: {
-        type: Array
+        type: Array,
       },
       isSelected: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isDisabled: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isBetween: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayBefore: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayAfter: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isLast: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isFirst: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayBeforeFirst: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayAfterFirst: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayBeforeLast: {
         default: false,
-        type: Boolean
+        type: Boolean,
       },
       isOneDayAfterLast: {
         default: false,
-        type: Boolean
-      }
+        type: Boolean,
+      },
     },
     computed: {
       rootClasses() {
@@ -82,10 +78,10 @@
           '--one-day-before-first': this.isOneDayBeforeFirst,
           '--one-day-after-first': this.isOneDayAfterFirst,
           '--one-day-before-last': this.isOneDayBeforeLast,
-          '--one-day-after-last': this.isOneDayAfterLast
+          '--one-day-after-last': this.isOneDayAfterLast,
         };
-      }
-    }
+      },
+    },
   };
 </script>
 
@@ -93,11 +89,11 @@
   $cell-width: 40px;
   $cell-height: 40px;
   $radius: 3px;
-  
-  $color-primary: #387FBF;
-  $color-accent: #FF8A00;
+
+  $color-primary: #387fbf;
+  $color-accent: #ff8a00;
   $light-gray: #f7f7f9;
-  
+
   .calendar-cell {
     border-radius: 3px;
     border: none;
@@ -115,14 +111,13 @@
     position: relative;
     color: #50696d;
     background-color: transparent;
-    
-    
+
     &:not(.--disabled):not(.--selected):hover {
       background-color: #9ea4b5;
-      color:  $light-gray;
+      color: $light-gray;
     }
     &.--disabled:not(.--between) {
-      opacity: .1;
+      opacity: 0.1;
     }
     &.--between {
       background-color: $light-gray;
@@ -136,7 +131,7 @@
       border-radius: 0;
     }
     &.--is-other-month-day:not(.--disabled):not(.--between):not(.--selected) {
-      opacity: .5;
+      opacity: 0.5;
     }
     &:focus:not(.--selected) {
       outline: none;
@@ -163,5 +158,4 @@
       color: #fff;
     }
   }
-  
 </style>

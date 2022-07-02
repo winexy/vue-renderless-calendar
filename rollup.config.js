@@ -16,38 +16,34 @@ function createLocaleConfig(locale) {
       {
         format: 'es',
         dir: 'dist/locale',
-        entryFileNames: '[name].es.js'
+        entryFileNames: '[name].es.js',
       },
       {
         format: 'cjs',
-        dir: 'dist/locale'
-      }
+        dir: 'dist/locale',
+      },
     ],
-    plugins: [
-      buble(),
-      production && terser()
-    ]
+    plugins: [buble(), production && terser()],
   };
 }
 
-export default [{
-  input: path.join('lib', 'index.js'),
-  output: [
-    {
-      sourcemap: !production,
-      format: 'es',
-      dir: 'dist',
-      entryFileNames: '[name].es.js'
-    },
-    {
-      sourcemap: !production,
-      format: 'cjs',
-      dir: 'dist'
-    }
-  ],
-  plugins: [
-    buble(),
-    !production && sourcemaps(),
-    production && terser()
-  ]
-}, ...locales];
+export default [
+  {
+    input: path.join('lib', 'index.js'),
+    output: [
+      {
+        sourcemap: !production,
+        format: 'es',
+        dir: 'dist',
+        entryFileNames: '[name].es.js',
+      },
+      {
+        sourcemap: !production,
+        format: 'cjs',
+        dir: 'dist',
+      },
+    ],
+    plugins: [buble(), !production && sourcemaps(), production && terser()],
+  },
+  ...locales,
+];

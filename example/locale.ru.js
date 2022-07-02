@@ -1,88 +1,88 @@
 const months = [
   {
     short: 'Янв',
-    full: 'Январь'
+    full: 'Январь',
   },
   {
     short: 'Фев',
-    full: 'Февраль'
+    full: 'Февраль',
   },
   {
     short: 'Мар',
-    full: 'Март'
+    full: 'Март',
   },
   {
     short: 'Апр',
-    full: 'Апрель'
+    full: 'Апрель',
   },
   {
     short: 'Май',
-    full: 'Май'
+    full: 'Май',
   },
   {
     short: 'Июн',
-    full: 'Июнь'
+    full: 'Июнь',
   },
   {
     short: 'Июл',
-    full: 'Июль'
+    full: 'Июль',
   },
   {
     short: 'Авг',
-    full: 'Август'
+    full: 'Август',
   },
   {
     short: 'Сен',
-    full: 'Сентябрь'
+    full: 'Сентябрь',
   },
   {
     short: 'Окт',
-    full: 'Октябрь'
+    full: 'Октябрь',
   },
   {
     short: 'Ноя',
-    full: 'Ноябрь'
+    full: 'Ноябрь',
   },
   {
     short: 'Дек',
-    full: 'Декабрь'
-  }
+    full: 'Декабрь',
+  },
 ];
 
 const days = [
   {
     short: 'Пн',
-    full: 'Понедельник'
+    full: 'Понедельник',
   },
   {
     short: 'Вт',
-    full: 'Вторник'
+    full: 'Вторник',
   },
   {
     short: 'Ср',
-    full: 'Среда'
+    full: 'Среда',
   },
   {
     short: 'Чт',
-    full: 'Четверг'
+    full: 'Четверг',
   },
   {
     short: 'Пт',
-    full: 'Пятница'
+    full: 'Пятница',
   },
   {
     short: 'Сб',
-    full: 'Суббота'
+    full: 'Суббота',
   },
   {
     short: 'Вс',
-    full: 'Воскресенье'
-  }
+    full: 'Воскресенье',
+  },
 ];
 
 const locale = {
   months,
-  days
+  days,
 };
 
 export default locale;
