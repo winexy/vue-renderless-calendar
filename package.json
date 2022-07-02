@@ -22,6 +22,7 @@
     "url": "git+https://github.com/winexy/vue-renderless-calendar.git"
   },
   "scripts": {
+    "prepare": "husky install",
     "build": "NODE_ENV=production rollup -c",
     "build:example": "parcel build example/index.html --out-dir dist-example",
     "watch": "rollup -c -w",
