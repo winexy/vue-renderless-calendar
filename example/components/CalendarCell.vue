@@ -54,7 +54,15 @@
         default: false,
         type: Boolean
       },
+      isOneDayAfterFirst: {
+        default: false,
+        type: Boolean
+      },
       isOneDayBeforeLast: {
+        default: false,
+        type: Boolean
+      },
+      isOneDayAfterLast: {
         default: false,
         type: Boolean
       }
@@ -72,7 +80,9 @@
           '--one-day-before': this.isOneDayBefore,
           '--one-day-after': this.isOneDayAfter,
           '--one-day-before-first': this.isOneDayBeforeFirst,
-          '--one-day-before-last': this.isOneDayBeforeLast
+          '--one-day-after-first': this.isOneDayAfterFirst,
+          '--one-day-before-last': this.isOneDayBeforeLast,
+          '--one-day-after-last': this.isOneDayAfterLast
         };
       }
     }
