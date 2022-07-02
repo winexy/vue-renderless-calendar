@@ -30,6 +30,7 @@
     "test:watch": "ava --watch",
     "test": "ava",
     "lint": "eslint ./lib",
+    "lint:fix": "eslint ./lib --fix",
     "format": "prettier --write .",
     "prepare": "npm test && npm run build"
   },
