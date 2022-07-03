@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import { RenderlessCalendar } from '../lib';
+import { RenderlessCalendar } from '../../lib';
 
 Vue.config.productionTip = false;
 
