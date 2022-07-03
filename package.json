@@ -33,7 +33,20 @@
     "format": "prettier --write .",
     "prepublishOnly": "npm test && npm run build"
   },
+  "dependencies": {
+    "vue-demi": "^0.13.1"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
   "devDependencies": {
+    "vue": "^3.0.0",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "ava": "^1.4.1",

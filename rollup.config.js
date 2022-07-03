@@ -3,6 +3,7 @@ import buble from 'rollup-plugin-buble';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import fs from 'fs';
 import path from 'path';
+import pkg from './package.json';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -30,6 +31,7 @@ function createLocaleConfig(locale) {
 export default [
   {
     input: path.join('lib', 'index.js'),
+    external: Object.keys(pkg.dependencies),
     output: [
       {
         sourcemap: !production,
