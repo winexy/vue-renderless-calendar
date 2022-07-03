@@ -31,7 +31,8 @@
     "lint": "eslint ./lib",
     "lint:fix": "eslint ./lib --fix",
     "format": "prettier --write .",
-    "prepublishOnly": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build",
+    "build:examples": "TARGET=examples rollup -c"
   },
   "dependencies": {
     "vue-demi": "^0.13.1"

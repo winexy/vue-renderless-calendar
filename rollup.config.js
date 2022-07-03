@@ -5,26 +5,47 @@ import fs from 'fs';
 import path from 'path';
 import pkg from './package.json';
 
-const production = process.env.NODE_ENV === 'production';
+const isProductionBuild = process.env.NODE_ENV === 'production';
+const isBuildForExamples = process.env.TARGET === 'examples';
+const { log } = console;
 
 const localesList = fs.readdirSync(path.join(__dirname, 'lib', 'locale'));
 const locales = localesList.map(createLocaleConfig);
 
+function createOutputAssets({ dir }) {
+  return [
+    {
+      sourcemap: !isProductionBuild,
+      format: 'es',
+      dir,
+      entryFileNames: '[name].es.js',
+    },
+    {
+      sourcemap: !isProductionBuild,
+      format: 'cjs',
+      dir,
+    },
+  ];
+}
+
+function createExampleOutputs() {
+  const examples = fs.readdirSync(path.join(__dirname, 'examples'));
+  log('Create example outputs', examples);
+
+  return examples.flatMap(example => {
+    const exampleDir = path.join('examples', example, 'dist');
+    log('Example dir', exampleDir);
+    return createOutputAssets({ dir: exampleDir });
+  });
+}
+
 function createLocaleConfig(locale) {
   return {
     input: path.join('lib', 'locale', locale),
-    output: [
-      {
-        format: 'es',
-        dir: 'dist/locale',
-        entryFileNames: '[name].es.js',
-      },
-      {
-        format: 'cjs',
-        dir: 'dist/locale',
-      },
-    ],
-    plugins: [buble(), production && terser()],
+    output: isBuildForExamples
+      ? createExampleOutputs()
+      : createOutputAssets({ dir: path.join('dist', 'locale') }),
+    plugins: [buble(), isProductionBuild && terser()],
   };
 }
 
@@ -32,20 +53,14 @@ export default [
   {
     input: path.join('lib', 'index.js'),
     external: Object.keys(pkg.dependencies),
-    output: [
-      {
-        sourcemap: !production,
-        format: 'es',
-        dir: 'dist',
-        entryFileNames: '[name].es.js',
-      },
-      {
-        sourcemap: !production,
-        format: 'cjs',
-        dir: 'dist',
-      },
+    output: isBuildForExamples
+      ? createExampleOutputs()
+      : createOutputAssets({ dir: 'dist' }),
+    plugins: [
+      buble(),
+      !isProductionBuild && sourcemaps(),
+      isProductionBuild && terser(),
     ],
-    plugins: [buble(), !production && sourcemaps(), production && terser()],
   },
   ...locales,
 ];

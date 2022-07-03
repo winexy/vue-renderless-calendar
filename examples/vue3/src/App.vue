@@ -39,7 +39,7 @@
   import Calendar from './components/Calendar.vue';
   import DoubleCalendar from './components/DoubleCalendar.vue';
   import InfiniteCalendar from './components/InfiniteCalendar.vue';
-  import localeRu from '../../../lib/locale/ru';
+  import localeRu from '../dist/ru.es';
 
   export default {
     name: 'App',

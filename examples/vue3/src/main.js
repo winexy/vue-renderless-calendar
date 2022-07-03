@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import RenderlessCalendar from '../../../lib/RenderlessCalendar';
+import { RenderlessCalendar } from '../dist/index.es';
 
 const app = createApp(App);
 app.component('RenderlessCalendar', RenderlessCalendar);
