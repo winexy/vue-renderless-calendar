@@ -8,6 +8,7 @@ runs:
         node-version: 16
     - name: Get npm cache directory
       id: npm-cache-dir
+      shell: bash
       run: |
         echo "::set-output name=dir::$(npm config get cache)"
     - uses: actions/cache@v3
@@ -17,4 +18,5 @@ runs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm ci
+    - shell: bash
+      run: npm ci
