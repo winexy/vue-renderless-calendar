@@ -30,6 +30,7 @@
     "test": "ava",
     "lint": "eslint ./lib",
     "lint:fix": "eslint ./lib --fix",
+    "format:check": "prettier --check .",
     "format": "prettier --write .",
     "prepublishOnly": "npm test && npm run build",
     "build:examples": "TARGET=examples rollup -c"
