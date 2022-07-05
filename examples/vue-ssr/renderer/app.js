@@ -1,5 +1,5 @@
 import { createSSRApp, h } from 'vue';
-import { setPageContext } from './usePageContext';
+import { RenderlessCalendar } from '../dist/index.es';
 
 export { createApp };
 
@@ -13,8 +13,7 @@ function createApp(pageContext) {
 
   const app = createSSRApp(PageWithLayout);
 
-  // We make `pageContext` available from any Vue component
-  setPageContext(app, pageContext);
+  app.component('RenderlessCalendar', RenderlessCalendar);
 
   return app;
 }
