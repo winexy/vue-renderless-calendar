@@ -20,10 +20,9 @@
         <Calendar :locale="customLocale" />
       </section>
       <section>
-        <div>
-          Hard-coded locale <i>(backward-compatible)</i>
-          <pre>/lib/locale/ru.js</pre>
-        </div>
+        <p>No locale provided</p>
+        <p>Uses "en" in SSR environment as default.</p>
+        <p>In browser uses navigator.language</p>
         <Calendar />
       </section>
     </div>
