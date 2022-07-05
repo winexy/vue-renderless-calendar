@@ -24,7 +24,7 @@
           Hard-coded locale <i>(backward-compatible)</i>
           <pre>/lib/locale/ru.js</pre>
         </div>
-        <Calendar :locale="hardcodedLocale" />
+        <Calendar />
       </section>
     </div>
     <section>
@@ -40,7 +40,6 @@
   import Calendar from '../../components/Calendar.vue';
   import DoubleCalendar from '../../components/DoubleCalendar.vue';
   import InfiniteCalendar from '../../components/InfiniteCalendar.vue';
-  import localeRu from '../../dist/ru.es';
 
   export default {
     name: 'App',
@@ -50,7 +49,6 @@
       Calendar,
     },
     data: () => ({
-      hardcodedLocale: localeRu,
       customLocale: 'hu',
     }),
   };
