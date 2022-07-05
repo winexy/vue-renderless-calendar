@@ -1,5 +1,8 @@
 # vue-renderless-calendar 📆
 
+![default workflow](https://github.com/winexy/vue-renderless-calendar/actions/workflows/default.yml/badge.svg)
+![npm version](https://badgen.net/npm/v/vue-renderless-calendar)
+
 > Zero dependency Vue renderless calendar with scoped-slots API
 
 ## Install
