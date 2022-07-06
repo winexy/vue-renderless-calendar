@@ -2,3 +2,8 @@ dist-example/
 examples/
 .cache/
 .idea/
+.github/
+lint-staged.config.js
+commitlint.config.js
+babel.config.js
+.eslintrc.js
