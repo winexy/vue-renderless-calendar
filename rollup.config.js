@@ -29,7 +29,10 @@ function createOutputAssets({ dir }) {
 }
 
 function createExampleOutputs() {
-  const examples = fs.readdirSync(path.join(__dirname, 'examples'));
+  const examples = fs
+    .readdirSync(path.join(__dirname, 'examples'))
+    .filter(example => example !== 'README.md');
+
   log('Create example outputs', examples);
 
   return examples.flatMap(example => {
