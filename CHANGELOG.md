@@ -1,3 +1,13 @@
+## v2.4.0
+
+### Added
+
+- Added vue@3 support via vue-demi. Replaced scoped-slots api usage
+
+### Fixed
+
+- Omit `window.navigator` reference in SSR environment
+
 ## v2.3.0
 
 ### Added
